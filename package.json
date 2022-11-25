@@ -34,8 +34,8 @@
 		"build:all": "npm run build && npm run build:typedoc",
 		"clean": "rm -rf ./dist/ ./docs/typedocs/",
 		"deploy": "gh-pages -d ./docs/typedocs",
-		"test": "vitest",
-		"test:ui": "vitest --ui",
+		"test": "vitest --coverage",
+		"test:ui": "vitest --coverage --ui",
 		"lint": "eslint src --ext .ts,.tsx",
 		"lint:fix": "eslint --fix src --ext .ts,.tsx",
 		"test:all": "npm run test && npm run lint",
@@ -48,6 +48,7 @@
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "5.44.0",
 		"@typescript-eslint/parser": "5.44.0",
+		"@vitest/coverage-c8": "^0.25.3",
 		"@vitest/ui": "^0.25.3",
 		"eslint": "8.27.0",
 		"gh-pages": "4.0.0",
