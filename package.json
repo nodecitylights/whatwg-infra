@@ -1,0 +1,62 @@
+{
+	"name": "@neoncitylights/library-name",
+	"version": "0.0.0",
+	"description": "{description}",
+	"license": "MIT",
+	"author": {
+		"name": "Samantha",
+		"url": "https://github.com/neoncitylights"
+	},
+	"keywords": [
+		"progression",
+		"sequences"
+	],
+	"bugs": "https://github.com/samantha-labs/{library}/issues",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/samantha-labs/{library}.git"
+	},
+	"funding": {
+		"type": "individual",
+		"url": "https://github.com/sponsors/neoncitylights"
+	},
+	"main": "./dist/bundle.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"directories": {
+		"test": "tests"
+	},
+	"scripts": {
+		"build": "webpack --color",
+		"build:typedoc": "npx typedoc",
+		"build:all": "npm run build && npm run build:typedoc",
+		"clean": "rm -rf ./dist/ ./docs/typedocs/",
+		"deploy": "gh-pages -d ./docs/typedocs",
+		"test": "jest --coverage",
+		"lint": "eslint src --ext .ts,.tsx",
+		"lint:fix": "eslint --fix src --ext .ts,.tsx",
+		"test:all": "npm run test && npm run lint",
+		"prepare": "npm run build",
+		"prepublishOnly": "npm run test:all",
+		"preversion": "npm run lint",
+		"version": "npm run lint && git add -A src",
+		"postversion": "git push && git push --tags"
+	},
+	"devDependencies": {
+		"@types/jest": "29.2.3",
+		"@typescript-eslint/eslint-plugin": "5.43.0",
+		"@typescript-eslint/parser": "5.43.0",
+		"eslint": "8.27.0",
+		"eslint-plugin-jest": "27.1.5",
+		"gh-pages": "4.0.0",
+		"jest": "29.3.1",
+		"ts-jest": "29.0.3",
+		"ts-loader": "9.4.1",
+		"typedoc": "0.23.21",
+		"typescript": "4.9.3",
+		"webpack": "5.75.0",
+		"webpack-cli": "5.0.0"
+	}
+}
