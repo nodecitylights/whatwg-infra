@@ -74,12 +74,12 @@ export const normalizeNewlines = (value: string): string => {
  */
 export const stripTrailingLeadingAsciiWhitespace = (value: string): string => {
 	let leadingIndex = 0;
-	while(isAsciiWhitespace(value[leadingIndex])) {
+	while(isAsciiWhitespace(value[leadingIndex] as string)) {
 		leadingIndex++;
 	}
 
 	let trailingIndex = value.length;
-	while(isAsciiWhitespace(value[trailingIndex - 1])) {
+	while(isAsciiWhitespace(value[trailingIndex - 1] as string)) {
 		trailingIndex--;
 	}
 
@@ -98,7 +98,8 @@ export const stripCollapseAsciiWhitespace = (value: string): string => {
 	let lastSeenWhitespace = false;
 
 	for(let i = 0; i < value.length; i++) {
-		if(isAsciiWhitespace(value[i])) {
+		const codepoint = value[i] as string;
+		if(isAsciiWhitespace(codepoint)) {
 			if(!lastSeenWhitespace) {
 				lastSeenWhitespace = true;
 				result += '\u{0020}';
@@ -106,7 +107,7 @@ export const stripCollapseAsciiWhitespace = (value: string): string => {
 			}
 		} else {
 			lastSeenWhitespace = false;
-			result += value[i];
+			result += codepoint;
 		}
 	}
 
