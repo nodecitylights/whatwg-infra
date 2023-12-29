@@ -1,15 +1,15 @@
 {
 	"name": "@neoncitylights/whatwg-infra",
 	"version": "0.0.0",
-	"description": "A TypeScript package implementing various Unicode-related algorithms from the WHATWG Infra Standard. ",
+	"description": "A TypeScript package implementing various Unicode-related algorithms from the WHATWG Infra Standard.",
 	"license": "MIT",
 	"author": {
 		"name": "Samantha",
 		"url": "https://github.com/neoncitylights"
 	},
 	"keywords": [
-		"progression",
-		"sequences"
+		"whatwg",
+		"infra"
 	],
 	"bugs": "https://github.com/neoncitylights/ts-whatwg-infra/issues",
 	"repository": {
@@ -20,16 +20,20 @@
 		"type": "individual",
 		"url": "https://github.com/sponsors/neoncitylights"
 	},
-	"main": "./dist/bundle.js",
+	"type": "module",
 	"types": "./dist/index.d.ts",
+	"module": "./dist/infra.mjs",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/infra.mjs"
+		}
+	},
 	"files": [
 		"dist"
 	],
-	"directories": {
-		"test": "tests"
-	},
 	"scripts": {
-		"build": "webpack --color",
+		"build": "vite build",
 		"build:typedoc": "npx typedoc",
 		"build:all": "npm run build && npm run build:typedoc",
 		"clean": "rm -rf ./dist/ ./docs/typedocs/",
@@ -46,17 +50,17 @@
 		"postversion": "git push && git push --tags"
 	},
 	"devDependencies": {
+		"@types/node": "^20.10.5",
 		"@typescript-eslint/eslint-plugin": "5.44.0",
 		"@typescript-eslint/parser": "5.44.0",
-		"@vitest/coverage-c8": "^0.25.3",
-		"@vitest/ui": "^0.25.3",
+		"@vitest/ui": "^1.1.0",
 		"eslint": "8.27.0",
+		"eslint-config-neoncitylights": "^0.3.0",
 		"gh-pages": "4.0.0",
-		"ts-loader": "9.4.1",
 		"typedoc": "0.23.21",
 		"typescript": "4.9.3",
-		"vitest": "^0.25.3",
-		"webpack": "5.76.0",
-		"webpack-cli": "5.0.0"
+		"vite": "^5.0.10",
+		"vite-plugin-dts": "^3.7.0",
+		"vitest": "^1.1.0"
 	}
 }
