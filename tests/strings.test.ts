@@ -1,10 +1,11 @@
 import { expect, test } from 'vitest';
+
 import {
 	convertStringToScalarValue,
-	stripNewlines,
 	normalizeNewlines,
-	stripTrailingLeadingAsciiWhitespace,
 	stripCollapseAsciiWhitespace,
+	stripNewlines,
+	stripTrailingLeadingAsciiWhitespace,
 } from '../src/strings';
 
 test.each([
@@ -12,7 +13,7 @@ test.each([
 	[ '\u{D800}', '\u{FFFD}' ],
 ])('convert string to scalar value string', (input, expected) => {
 	expect(convertStringToScalarValue(input)).toBe(expected);
-})
+});
 
 test.each([
 	[ '', '' ],
@@ -22,7 +23,7 @@ test.each([
 	[ 'apple\nbanana', 'applebanana' ],
 ])('strip newlines', (value, expected) => {
 	expect(stripNewlines(value)).toBe(expected);
-})
+});
 
 test.each([
 	[ '', '' ],
@@ -31,13 +32,13 @@ test.each([
 	[ 'a\r\ntttt\r', 'a\ntttt\n'],
 ])('normalize newlines', (value, expected) => {
 	expect(normalizeNewlines(value)).toBe(expected);
-})
+});
 
 test.each([
 	[ '', '' ],
 ])('strip trailing and leading ASCII whitespace', (value, expected) => {
 	expect(stripTrailingLeadingAsciiWhitespace(value)).toBe(expected);
-})
+});
 
 test.each([
 	[ '', '' ],
@@ -47,4 +48,4 @@ test.each([
 	['\r  \n  cat dog  hamster \n\r', 'cat dog hamster'],
 ])('strip and collapse ASCII whitespace', (value, expected) => {
 	expect(stripCollapseAsciiWhitespace(value)).toBe(expected);
-})
+});
