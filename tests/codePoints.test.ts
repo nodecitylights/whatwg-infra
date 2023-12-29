@@ -1,4 +1,5 @@
 import { expect, test } from 'vitest';
+
 import {
 	isAsciiAlpha,
 	isAsciiAlphanumeric,
@@ -24,7 +25,7 @@ test.each([
 	[ '\u{0080}', false],
 ])('is ASCII byte', (codePoint, expected) => {
 	expect(isAsciiByte(codePoint)).toBe(expected);
-})
+});
 
 test.each([
 	[ '\u{D800}', true],
@@ -32,7 +33,7 @@ test.each([
 	[ '\u{E000}', false],
 ])('is Unicode surrogate', (codePoint, expected) => {
 	expect(isSurrogate(codePoint)).toBe(expected);
-})
+});
 
 test('is non-character', () => {
 	for (let i = 0xFDD0; i <= 0xFDEF; i++) {
@@ -42,7 +43,7 @@ test('is non-character', () => {
 	for (let i = 0x4FFFE; i <= 0x10FFFF; i += 0x10000) {
 		expect(isNonCharacter(String.fromCodePoint(i))).toBe(true);
 	}
-})
+});
 
 test.each([
 	[ '\u{0009}', true],
@@ -51,7 +52,7 @@ test.each([
 	[ '\u{0000}', false],
 ])('is ASCII tab or newline', (codePoint, expected) => {
 	expect(isAsciiTabOrNewline(codePoint)).toBe(expected);
-})
+});
 
 test.each([
 	[ '\u{0000}', false],
@@ -63,38 +64,38 @@ test.each([
 	[ '\u{0020}', true],
 ])('is ASCII whitespace', (codePoint, expected) => {
 	expect(isAsciiWhitespace(codePoint)).toBe(expected);
-})
+});
 
 test('is C0 control', () => {
 	for (let i = 0x0000; i <= 0x001F; i++) {
 		expect(isC0Control(String.fromCodePoint(i))).toBe(true);
 	}
-})
+});
 
 test('is C0 control or space', () => {
 	for (let i = 0x0000; i <= 0x001F; i++) {
 		expect(isC0ControlOrSpace(String.fromCodePoint(i))).toBe(true);
 	}
 	expect(isC0ControlOrSpace('\u{0020}')).toBe(true);
-})
+});
 
 test('is ASCII digit', () => {
 	for(let i = 0x0030; i <= 0x0039; i++) {
 		expect(isAsciiDigit(String.fromCodePoint(i))).toBe(true);
 	}
-})
+});
 
 test('is ASCII upper hex digit', () => {
 	for(let i = 0x0041; i <= 0x0046; i++) {
 		expect(isAsciiUpperHexDigit(String.fromCodePoint(i))).toBe(true);
 	}
-})
+});
 
 test('is ASCII lower hex digit', () => {
 	for(let i = 0x0061; i <= 0x0066; i++) {
 		expect(isAsciiLowerHexDigit(String.fromCodePoint(i))).toBe(true);
 	}
-})
+});
 
 test('is ASCII hex digit', () => {
 	for(let i = 0x0041; i <= 0x0046; i++) {
@@ -104,19 +105,19 @@ test('is ASCII hex digit', () => {
 	for(let i = 0x0061; i <= 0x0066; i++) {
 		expect(isAsciiHexDigit(String.fromCodePoint(i))).toBe(true);
 	}
-})
+});
 
 test('is ASCII upper alpha', () => {
 	for(let i = 0x0041; i <= 0x005A; i++) {
 		expect(isAsciiUpperAlpha(String.fromCodePoint(i))).toBe(true);
 	}
-})
+});
 
 test('is ASCII lower alpha', () => {
 	for(let i = 0x0061; i <= 0x007A; i++) {
 		expect(isAsciiLowerAlpha(String.fromCodePoint(i))).toBe(true);
 	}
-})
+});
 
 test('is ASCII alpha', () => {
 	for(let i = 0x0041; i <= 0x005A; i++) {
@@ -126,7 +127,7 @@ test('is ASCII alpha', () => {
 	for(let i = 0x0061; i <= 0x007A; i++) {
 		expect(isAsciiAlpha(String.fromCodePoint(i))).toBe(true);
 	}
-})
+});
 
 test('is ASCII alphanumeric', () => {
 	for(let i = 0x0030; i <= 0x0039; i++) {
@@ -140,4 +141,4 @@ test('is ASCII alphanumeric', () => {
 	for(let i = 0x0061; i <= 0x007A; i++) {
 		expect(isAsciiAlphanumeric(String.fromCodePoint(i))).toBe(true);
 	}
-})
+});
