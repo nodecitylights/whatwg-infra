@@ -58,8 +58,8 @@
 		"eslint": "8.27.0",
 		"eslint-config-neoncitylights": "^0.3.0",
 		"gh-pages": "4.0.0",
-		"typedoc": "0.23.21",
-		"typescript": "4.9.3",
+		"typedoc": "0.25.4",
+		"typescript": "5.3.3",
 		"vite": "^5.0.10",
 		"vite-plugin-dts": "^3.7.0",
 		"vitest": "^1.1.0"
