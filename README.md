@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![npm (scoped)](https://img.shields.io/npm/v/@neoncitylights/whatwg-infra?style=flat-square)](https://www.npmjs.com/package/@neoncitylights/whatwg-infra)
 [![Codecov](https://img.shields.io/codecov/c/github/neoncitylights/ts-whatwg-infra?style=flat-square&logo=codecov&logoColor=%23fff)](https://codecov.io/gh/neoncitylights/ts-whatwg-infra)
-[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/neoncitylights/ts-whatwg-infra/.github%2Fworkflows%2Fmain.yml?style=flat-square)](https://github.com/neoncitylights/ts-whatwg-infra/actions/workflows/ci.yml)
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/neoncitylights/ts-whatwg-infra/.github%2Fworkflows%2Fmain.yml?style=flat-square)](https://github.com/neoncitylights/ts-whatwg-infra/actions/workflows/main.yml)
 
 A small TypeScript package implementing various Unicode-related algorithms from the **WHATWG Infra Standard**[^whatwg-infra]. This currently includes:
  - [§ 4.5 Code points](https://infra.spec.whatwg.org/#code-points)
