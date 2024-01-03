@@ -17,11 +17,14 @@ test.each([
 		(cp: string) => isAsciiAlpha(cp),
 		['test', 4],
 	],
-	[
+	[ // collect nothing if position > length of string
 		'test',
 		5,
 		(cp: string) => isAsciiAlpha(cp),
 		['', 5],
+	],
+	[ // collect nothing if string is empty
+		'', 0, () => true, ['', 0],
 	],
 ])('collect a sequence of codepoints', (value, position, predicate, expected) => {
 	expect(collectCodepoints(value, position, predicate)).toEqual(expected);
