@@ -1,6 +1,6 @@
 node_modules
 coverage
-docs/typedocs
+docs/typedoc
 dist
 .history
 .idea
