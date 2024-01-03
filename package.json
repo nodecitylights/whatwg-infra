@@ -35,7 +35,7 @@
 	"scripts": {
 		"build": "vite build",
 		"build:all": "npm run build && npm run docs",
-		"docs": "npx typedoc",
+		"docs": "typedoc",
 		"clean": "rm -rf ./dist/ ./docs/typedocs/",
 		"deploy": "gh-pages -d ./docs/typedocs",
 		"test": "vitest --coverage",
