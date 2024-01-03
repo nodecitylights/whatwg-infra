@@ -44,6 +44,7 @@ npm install @neoncitylights/whatwg-infra
 
 #### Strings
 
+ - `fn`: <a href="#strings_collectCodepoints">#</a> strings.**collectCodepoints**(*value*, *position*, *predicate*): [string, number] • [source](./src/strings.ts)
  - `fn`: <a href="#strings_convertStringToScalarValue">#</a> strings.**convertStringToScalarValue**(*value*): string • [source](./src/strings.ts)
  - `fn`: <a href="#strings_stripNewlines">#</a> strings.**stripNewlines**(*value*): string • [source](./src/strings.ts)
  - `fn`: <a href="#strings_normalizeNewlines">#</a> strings.**normalizeNewlines**(*value*): string • [source](./src/strings.ts)

@@ -1,6 +1,37 @@
 import { isAsciiWhitespace, isSurrogate } from './codePoints';
 
 /**
+ * Collects a sequence of codepoints that passes a given predicate function,
+ * starting at a given position.
+ *
+ * @see https://infra.spec.whatwg.org/#collect-a-sequence-of-code-points
+ * @returns A 2-tuple of the new string and the new position
+ */
+export function collectCodepoints(
+	value: string,
+	position: number,
+	predicate: (codePoint: string) => boolean,
+): [string, number] {
+	if(position >= value.length || value === '') {
+		return ['', position];
+	}
+
+	let newPosition = position;
+	let result = '';
+
+	for(const codePoint of value.slice(position)) {
+		if(predicate(codePoint)) {
+			result += codePoint;
+			newPosition++;
+		} else {
+			break;
+		}
+	}
+
+	return [result, newPosition];
+}
+
+/**
  * A string with only Unicode scalar values (non-surrogate codepoints).
  *
  * @see https://unicode.org/glossary/#unicode_scalar_value
