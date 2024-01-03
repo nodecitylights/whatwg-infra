@@ -14,9 +14,19 @@ import {
 	isAsciiWhitespace,
 	isC0Control,
 	isC0ControlOrSpace,
+	isCodePointBetween,
 	isNonCharacter,
 	isSurrogate,
-} from '../src/codePoints';
+} from '../src';
+
+test.each([
+	['', 0x00, 0x20, false],
+	['\u{00}', 0x00, 0x20, true],
+	['\u{20}', 0x00, 0x20, true],
+	['\u{7F}', 0x00, 0x20, false],
+])('is codepoint %s in between %i and %i', (codePoint, min, max, expected) => {
+	expect(isCodePointBetween(codePoint, min, max)).toBe(expected);
+});
 
 test.each([
 	[ '\u{0000}', true],

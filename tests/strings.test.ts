@@ -6,11 +6,13 @@ import {
 	stripCollapseAsciiWhitespace,
 	stripNewlines,
 	stripTrailingLeadingAsciiWhitespace,
-} from '../src/strings';
+} from '../src';
 
 test.each([
 	[ '', '' ],
 	[ '\u{D800}', '\u{FFFD}' ],
+	[ '\u{DFFF}', '\u{FFFD}' ],
+	[ 'test', 'test' ],
 ])('convert string to scalar value string', (input, expected) => {
 	expect(convertStringToScalarValue(input)).toBe(expected);
 });
