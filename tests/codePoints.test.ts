@@ -17,7 +17,7 @@ import {
 	isCodePointBetween,
 	isNonCharacter,
 	isSurrogate,
-} from '../src/codePoints';
+} from '../src';
 
 test.each([
 	['', 0x00, 0x20, false],

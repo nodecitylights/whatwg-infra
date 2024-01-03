@@ -6,7 +6,7 @@ import {
 	stripCollapseAsciiWhitespace,
 	stripNewlines,
 	stripTrailingLeadingAsciiWhitespace,
-} from '../src/strings';
+} from '../src';
 
 test.each([
 	[ '', '' ],
