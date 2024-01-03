@@ -1,12 +1,31 @@
 import { expect, test } from 'vitest';
 
 import {
+	collectCodepoints,
 	convertStringToScalarValue,
+	isAsciiAlpha,
 	normalizeNewlines,
 	stripCollapseAsciiWhitespace,
 	stripNewlines,
 	stripTrailingLeadingAsciiWhitespace,
 } from '../src';
+
+test.each([
+	[
+		'test1234',
+		0,
+		(cp: string) => isAsciiAlpha(cp),
+		['test', 4],
+	],
+	[
+		'test',
+		5,
+		(cp: string) => isAsciiAlpha(cp),
+		['', 5],
+	],
+])('collect a sequence of codepoints', (value, position, predicate, expected) => {
+	expect(collectCodepoints(value, position, predicate)).toEqual(expected);
+});
 
 test.each([
 	[ '', '' ],
