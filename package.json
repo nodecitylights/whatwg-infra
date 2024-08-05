@@ -58,8 +58,8 @@
 	},
 	"devDependencies": {
 		"@types/node": "^20.10.5",
-		"@vitest/coverage-v8": "^1.1.0",
-		"@vitest/ui": "^1.1.0",
+		"@vitest/coverage-v8": "^2.0.5",
+		"@vitest/ui": "^2.0.5",
 		"eslint": "8.56.0",
 		"eslint-config-neoncitylights": "^0.3.0",
 		"markdownlint-cli2": "^0.12.1",
@@ -69,6 +69,6 @@
 		"typescript": "5.3.3",
 		"vite": "^5.0.10",
 		"vite-plugin-dts": "^3.7.0",
-		"vitest": "^1.1.0"
+		"vitest": "^2.0.5"
 	}
 }
